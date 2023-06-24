@@ -6,10 +6,10 @@ body {
   
   .timer {
     font-family: sans-serif;
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
     padding: 24px 32px;
     border-radius: 30px;
-    background: #555555;
     max-width: 650px;
 
   }
@@ -31,6 +31,9 @@ body {
 
   }
 
+  #sek {
+    opacity: o;
+  }
 
   .timer__btn--start {
     background: #55b46c;
@@ -41,7 +44,7 @@ body {
   }
   
 
-  @media only screen and (min-width: 961px) {
+  /* @media only screen and (min-width: 961px) {
    .timer {
     margin-left: 35%;
     margin-top: 12%;
@@ -161,4 +164,4 @@ body {
         margin-top: 33%;
       }
 
-}
+} */
