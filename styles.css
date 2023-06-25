@@ -1,11 +1,11 @@
 body {
-    background: #333333;
+    background: #1f1f1f;
     margin: 24px;
     color: white
   }
   
   .timer {
-    font-family: sans-serif;
+    font-family: ;
     display: flex;
     justify-content: space-evenly;
     padding: 24px 32px;
