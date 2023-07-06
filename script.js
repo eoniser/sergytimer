@@ -9,23 +9,7 @@ class Timer {
         reset: root.querySelector(".timer__btn--reset")
       };
   
-      this.interval = null;
-      this.remainingSeconds = 0;
-  
-      this.el.control.addEventListener("click", () => {
-        if (this.interval === null) {
-          this.start();
-        } else {
-          this.stop();
-        }
-      });
-  
-      const btn= document.getElementById("btn");
-
-  
-
-
-      this.el.reset.addEventListener("click", () => {
+    this.el.reset.addEventListener("click", () => {
         const inputMinutes = document.getElementById("myName").value;
         
 
@@ -36,8 +20,25 @@ class Timer {
           this.updateInterfaceTime();
         }
       });
+
+      this.interval = null;
+      this.remainingSeconds = 0;
+      const btn= document.getElementById("btn");
+
+
+      this.el.reset.addEventListener("click", () => {
+        if (this.interval === null) {
+          this.start();
+        } else {
+          this.stop();
+        }
+      });
+
+  
     }
   
+
+    
     updateInterfaceTime() {
       const minutes = Math.floor(this.remainingSeconds / 60);
       const seconds = this.remainingSeconds % 60;
@@ -85,6 +86,7 @@ class Timer {
   //<span class="timer__part timer__part--seconds" id="sek">00</span>
     static getHTML() {
       return `
+   <div id="stuff">
               <span class="timer__part timer__part--minutes">00</span>
               <input type="number" id="myName" placeholder="Enter Name"> 
               <button type="button" class="timer__btn timer__btn--control timer__btn--start">
@@ -93,6 +95,7 @@ class Timer {
               <button type="button" class="timer__btn timer__btn--reset" id="btn">
                   <span >START</span>
               </button>
+              </div>
           `;
     }
   }
