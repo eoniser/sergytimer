@@ -1,11 +1,11 @@
 body {
     background: #1f1f1f;
     margin: 24px;
-    color: white
+    color: white;
+    font-family: 'Fredericka the Great', cursive;
   }
   
   .timer {
-    font-family: ;
     display: flex;
     justify-content: space-evenly;
     padding: 24px 32px;
@@ -20,10 +20,11 @@ body {
   }
   
   .timer__btn {
-    width: 75px;
-    height: 75px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 150px;
+    height: 50px;
     margin-bottom: 16px;
-    border-radius: 50%;
+    border-radius: 3%;
     border: none;
     color: white;
     background: #ad45c2;

@@ -20,9 +20,16 @@ class Timer {
         }
       });
   
-      this.el.reset.addEventListener("click", () => {
-        const inputMinutes = prompt("Enter number of minutes:");
+      const btn= document.getElementById("btn");
+
   
+
+
+      this.el.reset.addEventListener("click", () => {
+        const inputMinutes = document.getElementById("myName").value;
+        
+
+
         if (inputMinutes < 1000) {
           this.stop();
           this.remainingSeconds = inputMinutes * 60;
@@ -79,12 +86,12 @@ class Timer {
     static getHTML() {
       return `
               <span class="timer__part timer__part--minutes">00</span>
- 
+              <input type="number" id="myName" placeholder="Enter Name"> 
               <button type="button" class="timer__btn timer__btn--control timer__btn--start">
                   <span class="material-icons">play_arrow</span>
               </button>
-              <button type="button" class="timer__btn timer__btn--reset">
-                  <span class="material-icons">timer</span>
+              <button type="button" class="timer__btn timer__btn--reset" id="btn">
+                  <span >START</span>
               </button>
           `;
     }
