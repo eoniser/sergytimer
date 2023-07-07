@@ -47,18 +47,26 @@ class Timer {
       this.el.seconds.textContent = seconds.toString().padStart(2, "0");
     }
   
-    updateInterfaceControls() {
-      if (this.interval === null) {
-        this.el.control.innerHTML = `<span class="material-icons">play_arrow</span>`;
-        this.el.control.classList.add("timer__btn--start");
-        this.el.control.classList.remove("timer__btn--stop");
-      } else {
-        this.el.control.innerHTML = `<span class="material-icons">pause</span>`;
-        this.el.control.classList.add("timer__btn--stop");
-        this.el.control.classList.remove("timer__btn--start");
-      }
-    }
+    // updateInterfaceControls() {
+    //   if (this.interval === null) {
+    //     this.el.control.innerHTML = `<span class="material-icons">play_arrow</span>`;
+    //     this.el.control.classList.add("timer__btn--start");
+    //     this.el.control.classList.remove("timer__btn--stop");
+    //   } else {
+    //     this.el.control.innerHTML = `<span class="material-icons">pause</span>`;
+    //     this.el.control.classList.add("timer__btn--stop");
+    //     this.el.control.classList.remove("timer__btn--start");
+    //   }
+    // }
   
+    inputDissapear () {
+      document.getElementById("btn").style.display="none"
+      document.getElementById("myName").style.display="none"
+    }
+    bignumberAppear () {
+      document.getElementById("largeNumber").style.opacity="1"
+    }
+
     start() {
       if (this.remainingSeconds === 0) return;
   
@@ -70,8 +78,10 @@ class Timer {
           this.stop();
         }
       }, 1000);
-  
-      this.updateInterfaceControls();
+        this.inputDissapear();
+        this.bignumberAppear();
+      // this.updateInterfaceControls();
+
     }
   
     stop() {
@@ -79,23 +89,27 @@ class Timer {
   
       this.interval = null;
   
-      this.updateInterfaceControls();
+      // this.updateInterfaceControls();
     }
   // Add below to add seconds to timer: 
   //<span class="timer__part">:</span>
   //<span class="timer__part timer__part--seconds" id="sek">00</span>
-    static getHTML() {
+       // add below to add stop and start buttons
+  // <button type="button" class="timer__btn timer__btn--control timer__btn--start">
+  //         <span class="material-icons">play_arrow</span>
+  //     </button>  
+  static getHTML() {
       return `
-   <div id="stuff">
-              <span class="timer__part timer__part--minutes">00</span>
-              <input type="number" id="myName" placeholder="Enter Name"> 
-              <button type="button" class="timer__btn timer__btn--control timer__btn--start">
-                  <span class="material-icons">play_arrow</span>
-              </button>
-              <button type="button" class="timer__btn timer__btn--reset" id="btn">
-                  <span >START</span>
-              </button>
-              </div>
+      <div class="timer" >
+      <div class="bigNumber">
+      <span class="timer__part timer__part--minutes" id="largeNumber">00</span>
+   </div>
+  <div class="stuff"> 
+      <input type="number" id="myName" placeholder="Enter Time"> 
+      <button type="button" class="timer__btn timer__btn--reset" id="btn">
+          <span >START</span>
+      </button>
+  </div>
           `;
     }
   }
