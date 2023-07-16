@@ -4,7 +4,6 @@ class Timer {
   
       this.el = {
         minutes: root.querySelector(".timer__part--minutes"),
-        // seconds: root.querySelector(".timer__part--seconds"),
         control: root.querySelector(".timer__btn--control"),
         reset: root.querySelector(".timer__btn--reset")
       };
@@ -44,20 +43,7 @@ class Timer {
       const seconds = this.remainingSeconds % 60;
   
       this.el.minutes.textContent = minutes.toString().padStart(2, "0");
-      this.el.seconds.textContent = seconds.toString().padStart(2, "0");
     }
-  
-    // updateInterfaceControls() {
-    //   if (this.interval === null) {
-    //     this.el.control.innerHTML = `<span class="material-icons">play_arrow</span>`;
-    //     this.el.control.classList.add("timer__btn--start");
-    //     this.el.control.classList.remove("timer__btn--stop");
-    //   } else {
-    //     this.el.control.innerHTML = `<span class="material-icons">pause</span>`;
-    //     this.el.control.classList.add("timer__btn--stop");
-    //     this.el.control.classList.remove("timer__btn--start");
-    //   }
-    // }
   
     inputDissapear () {
       document.getElementById("btn").style.display="none"
@@ -80,7 +66,6 @@ class Timer {
       }, 1000);
         this.inputDissapear();
         this.bignumberAppear();
-      // this.updateInterfaceControls();
 
     }
   
@@ -89,15 +74,8 @@ class Timer {
   
       this.interval = null;
   
-      // this.updateInterfaceControls();
+
     }
-  // Add below to add seconds to timer: 
-  //<span class="timer__part">:</span>
-  //<span class="timer__part timer__part--seconds" id="sek">00</span>
-       // add below to add stop and start buttons
-  // <button type="button" class="timer__btn timer__btn--control timer__btn--start">
-  //         <span class="material-icons">play_arrow</span>
-  //     </button>  
   static getHTML() {
       return `
       <div class="timer" >
